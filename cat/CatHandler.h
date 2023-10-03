@@ -20,6 +20,13 @@ public:
     static void handleCats();
 
     static long randomLong(long minIO, long maxIO);
+
+    static bool equalsIgnoreCase(const std::string &a, const std::string &b);
+
+    static VirtualCat *getCat(std::basic_string<char> &basicString);
+
+
+    static void setCurrent(VirtualCat *cat);
 };
 
 

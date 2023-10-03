@@ -8,6 +8,7 @@
 #include "HelpCommand.h"
 #include "ListCommand.h"
 #include "CreateCommand.h"
+#include "FeedCommand.h"
 
 
 #include <iostream>
@@ -81,6 +82,7 @@ void CommandHandler::init() {
     CommandHandler::addCommand(new HelpCommand());
     CommandHandler::addCommand(new ListCommand());
     CommandHandler::addCommand(new CreateCommand());
+    CommandHandler::addCommand(new FeedCommand());
 }
 
 /**

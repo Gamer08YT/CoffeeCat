@@ -13,6 +13,8 @@ std::vector<VirtualCat *> cats;
 
 std::thread threadIO;
 
+VirtualCat *current = nullptr;
+
 /**
  * Create new Cat.
  * @param nameIO
@@ -87,4 +89,33 @@ long CatHandler::randomLong(long minIO, long maxIO) {
 
     // Generate a random long
     return distrib(gen);
+}
+
+VirtualCat *CatHandler::getCat(std::basic_string<char> &basicString) {
+    for (VirtualCat *cat: getCats()) {
+        if (equalsIgnoreCase(cat->getName(), basicString)) {
+            return cat;
+        }
+    }
+
+    return nullptr;
+}
+
+
+bool CatHandler::equalsIgnoreCase(const std::string &a, const std::string &b) {
+    if (a.length() != b.length()) {
+        return false;
+    }
+
+    for (std::string::size_type i = 0; i < a.size(); ++i) {
+        if (std::tolower(a[i]) != std::tolower(b[i])) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+void CatHandler::setCurrent(VirtualCat *cat) {
+    current = cat;
 }

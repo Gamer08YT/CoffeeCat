@@ -16,7 +16,7 @@ public:
     }
 
     const char *description() override {
-        return "Create a new Cat /create <Name>";
+        return "Create a new Cat /create <Name>.";
     }
 
     void execute(std::vector<std::string> argsIO) override;

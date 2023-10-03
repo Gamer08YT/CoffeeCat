@@ -17,4 +17,8 @@ add_executable(CoffeeCat main.cpp
         cat/VirtualCat.cpp
         cat/VirtualCat.h
         cat/CatHandler.cpp
-        cat/CatHandler.h)
+        cat/CatHandler.h
+        commands/FeedCommand.cpp
+        commands/FeedCommand.h
+        commands/AttachCommand.cpp
+        commands/AttachCommand.h)
