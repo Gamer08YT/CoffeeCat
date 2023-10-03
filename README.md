@@ -7,7 +7,7 @@
           `-    \`_`"'-
 ```
 
-C++ Fight between [OlfMSQL](https://github.com/OlfMSQL) and me :)
+C++ Fight between [OlfMSQL](https://github.com/OlfMSQL/CatCafe/) and me :)
 
 #### Functions:
 

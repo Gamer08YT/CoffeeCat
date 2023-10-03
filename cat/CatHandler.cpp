@@ -119,3 +119,7 @@ bool CatHandler::equalsIgnoreCase(const std::string &a, const std::string &b) {
 void CatHandler::setCurrent(VirtualCat *cat) {
     current = cat;
 }
+
+VirtualCat * CatHandler::getCurrent() {
+    return current;
+}

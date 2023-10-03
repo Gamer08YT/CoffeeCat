@@ -27,6 +27,8 @@ public:
 
 
     static void setCurrent(VirtualCat *cat);
+
+    static VirtualCat * getCurrent();
 };
 
 
