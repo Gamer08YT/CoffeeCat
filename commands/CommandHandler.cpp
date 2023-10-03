@@ -89,8 +89,8 @@ void CommandHandler::init() {
  */
 void CommandHandler::addCommand(Command *commandIO) {
     // Print Debug Message.
-    print("Added Command ");
-    println(commandIO->invoke());
+    //print("Added Command ");
+    //println(commandIO->invoke());
 
     // Push Command into Vector.
     commands.push_back(commandIO);

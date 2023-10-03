@@ -18,6 +18,8 @@ public:
     static void init();
 
     static void handleCats();
+
+    static long randomLong(long minIO, long maxIO);
 };
 
 

@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <thread>
+#include <random>
 #include "CatHandler.h"
 #include "VirtualCat.h"
 #include "../commands/CommandHandler.h"
@@ -31,11 +32,59 @@ void CatHandler::init() {
     CommandHandler::println("Started NB Cat Thread.");
 }
 
+/**
+ * @brief The CatHandler struct handles the creation, initialization, and processing of cats.
+ *
+ * The CatHandler struct provides functionality to create cats, retrieve the list of cats,
+ * initialize the cat handler, handle the cats, and generate random long numbers.
+ */
+
 void CatHandler::handleCats() {
     while (true) {
         // Sleep for 1 Second to save CPU Bandwidth (Like Java?).
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-        CommandHandler::println("SECOND");
+        // Loop trough Cats and increment Values.
+        for (VirtualCat *cat: CatHandler::getCats()) {
+            // Check for Cat Health Status.
+            if (cat->getHunger() > 0) {
+                // Increment Cat Age.
+                cat->setAge(cat->getAge() + 1);
+
+                // Set Hunger of Cat.
+                cat->setHunger(cat->getHunger() - randomLong(0.1, 2));
+            } else {
+                if (cat->isAlive()) {
+                    // Print Death Message.
+                    CommandHandler::print("Cat '");
+                    CommandHandler::print(cat->getName());
+                    CommandHandler::print("' has died (");
+                    CommandHandler::print(std::to_string(cat->getAge()));
+                    CommandHandler::println(" days old)    † R I P");
+
+                    // Set Cat to Death.
+                    cat->setAlive(false);
+                }
+            }
+        }
     }
+}
+
+/**
+ * @brief The CatHandler struct handles the creation, initialization, and processing of cats.
+ *
+ * The CatHandler struct provides functionality to create cats, retrieve the list of cats,
+ * initialize the cat handler, handle the cats, and generate random long numbers.
+ */
+
+long CatHandler::randomLong(long minIO, long maxIO) {
+    // Obtain a random number from hardware
+    std::random_device rd;
+
+    // Seed the generator
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<long> distrib(minIO, maxIO);
+
+    // Generate a random long
+    return distrib(gen);
 }

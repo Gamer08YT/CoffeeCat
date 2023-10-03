@@ -6,7 +6,13 @@ void handleCommand(std::string basicString);
 
 
 int main() {
-    std::cout << "Welcome you little Cat Lover :)" << std::endl;
+    setlocale(LC_ALL, "");
+    std::cout << " _._     _,-'\"\"`-._\n"
+                 "(,-.`._,'(       |\\`-/|\n"
+                 "    `-.-' \\ )-`( , o o)\n"
+                 "          `-    \\`_`\"'-" << std::endl;
+
+    std::cout << "†";
 
     // Register Commands.
     CommandHandler::init();

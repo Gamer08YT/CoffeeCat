@@ -11,8 +11,20 @@ void ListCommand::execute(std::vector<std::string> argsIO) {
     // Loop trough Cats.
     for (VirtualCat *cat: CatHandler::getCats()) {
         // Print Name with Age.
-        CommandHandler::print(cat->getName());
-        CommandHandler::print(" - ");
+        CommandHandler::print("Name: ");
+        CommandHandler::println(cat->getName());
+
+        // Print Age (Days)
+        CommandHandler::print("Age (Days): ");
         CommandHandler::println(std::to_string(cat->getAge()));
+
+        // Print Age (Years)
+        CommandHandler::print("Age (Years): ");
+        CommandHandler::println(std::to_string(cat->getAge() / 365));
+
+        CommandHandler::print("Hunger: ");
+        CommandHandler::println(std::to_string(cat->getHunger()));
+
+        CommandHandler::println("===============================================");
     }
 }
